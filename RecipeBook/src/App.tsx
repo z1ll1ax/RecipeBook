@@ -27,14 +27,70 @@ function App() {
         </div>
       </header>
       <main className='main'>
-        <aside className='menu'>
-          <section className='menu__section'>
-            Главная
+        <div className='main-overflow'>
+          <aside className='menu'>
+            <nav className='menu-nav'>
+              <ul className='menu-list'>
+                <li className='menu-item'>
+                  <a className='menu-item__link'>
+                    Главная
+                  </a>
+                </li>
+                <li className='menu-item'>
+                  <a className='menu-item__link'>
+                    Мои рецепты
+                  </a>
+                </li>
+                <li className='menu-item'>
+                  <a className='menu-item__link'>
+                    Избранное
+                  </a>
+                </li>
+                <li className='menu-item'>
+                  <a className='menu-item__link'>
+                    Друзья
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </aside>
+          <section className="main-catalog">
+          <form className='form'
+                action="/my-handling-form-page"
+                method="post">
+            <h1 className='form-header'>Регистрация</h1>
+            <div className='form-field'>
+              <label className='form-field__label'
+                    htmlFor="name">Логин</label>
+              <input className='form-field__input'
+                    type="text"
+                    id="name"
+                    name="user_login"/>
+            </div>
+            <div className='form-field'>
+              <label className='form-field__label'
+                    htmlFor="password">Пароль</label>
+              <input className='form-field__input'
+                    type="password"
+                    id="password"
+                    name="user_password"></input>
+            </div>
+            <div className='form-links'>
+              <a className='form-link'>
+                Уже есть аккаунт? Войти
+              </a>
+              <a className='form-link'>
+                Забыли пароль?
+              </a>
+            </div>
+            <button className='form-button'
+                    type="submit">
+              Зарегистрироваться
+            </button>
+          </form>
           </section>
-          <section className='menu__section'>
-            Мои рецепты
-          </section>
-        </aside>
+        </div>
+        
         <div className='catalog'>
           <article className='catalog-item'>
 
