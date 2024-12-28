@@ -1,16 +1,250 @@
-body {
+$black-green-color: #081c15;
+$darker-green-color: #1b4332;
+$dark-green-color: #2d6a4f;
+$green-color: #40916c;
+$light-green-color: #52b788;
+$lighter-green-color: #74c69d;
+$mint-color: #95d5b2;
+$lighter-mint-color: #b7e4c7;
+$white-green-color: #d8f3dc;
+
+$header-length: 64px;
+
+$Alumni-Sans-font-family: "Alumni-Sans";
+$Bellota-font-family: "Bellota";
+$Comfortaa-font-family: "Comfortaa";
+$Oswald-font-family: "Oswald";
+
+@font-face {
+    font-family: "Alumni-Sans";
+    src: url("./assets/fonts/Alumni_Sans_Pinstripe/AlumniSansPinstripe-Regular.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Alumni-Sans";
+    src: url("./assets/fonts/Alumni_Sans_Pinstripe/AlumniSansPinstripe-Italic.ttf");
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Bellota";
+    src: url("./assets/fonts/Bellota/Bellota-Regular.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Bellota";
+    src: url("./assets/fonts/Bellota/Bellota-Bold.ttf");
+    font-weight: 700;
+    font-style: bold;
+}
+@font-face {
+    font-family: "Bellota";
+    src: url("./assets/fonts/Bellota/Bellota-BoldItalic.ttf");
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Bellota";
+    src: url("./assets/fonts/Bellota/Bellota-Italic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Bellota";
+    src: url("./assets/fonts/Bellota/Bellota-Light.ttf");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Bellota";
+    src: url("./assets/fonts/Bellota/Bellota-LightItalic.ttf");
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Comfortaa";
+    src: url("./assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Oswald";
+    src: url("./assets/fonts/Oswald/Oswald-VariableFont_wght.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+.body {
     margin: 0;
     padding: 0;
 }
 
+h1, h3, a {
+    margin: 0;
+}
+
+a:hover, button:hover {
+    cursor: pointer;
+}
+
 .header {
-    background-color: red;
+    height: $header-length;
+    border-bottom: $darker-green-color 2px solid;
+    background: linear-gradient(155deg, $green-color, $light-green-color);
+    .header-overflow {
+        height: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 0 20px;
+            .header-logo__image {
+                height: calc($header-length - 10px);
+            }
+
+            .header-logo__header {
+                font-family: $Comfortaa-font-family;
+                color: $white-green-color;
+            }
+        }
+
+        .header-input {
+            height: calc($header-length - 30px);
+            width: 400px;
+            border: 2px solid $white-green-color;
+            border-radius: 20px;
+            padding-left: 30px;
+            font-family: $Comfortaa-font-family;
+            font-size: 24px;
+        }
+
+        .account {
+            display: flex;
+            gap: 12px;
+            .account__avatar {
+                height: calc($header-length - 10px);
+            }
+            .account-settings {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                .account-settings__name {
+                    font-family: $Bellota-font-family;
+                    color: $white-green-color;
+                    font-size: 24px;
+                }
+                .account-settings__quit {
+                    font-family: $Bellota-font-family;
+                    color: $white-green-color;
+                    text-align: right;
+                }
+            }
+        }
+    }
 }
 
 .main {
-    background-color: green;
+    background: $white-green-color;
+    height: 1500px;
+    .main-overflow {
+        max-width: 1440px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        .menu {
+            .menu-nav {
+                .menu-list {
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    .menu-item {
+                        border: none;
+                        padding: 8px;
+                        background: linear-gradient(-155deg, $lighter-mint-color, $mint-color);
+                        .menu-item__link {
+                            font-family: $Bellota-font-family;
+                            color: $black-green-color;
+                            font-weight: 700;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+        .main-catalog {
+            margin: 0 auto;
+            .form {
+                width: 600px;
+                display: flex;
+                flex-direction: column;
+                .form-header {
+                    font-family: $Alumni-Sans-font-family;
+                    color: $dark-green-color;
+                    font-size: 48px;
+                    font-weight: 700;
+                    text-align: center;
+                    margin-top: 100px;
+                    margin-bottom: 50px;
+                }
+                .form-field {
+                    display: grid;
+                    align-items: center;
+                    gap: 20px;
+                    grid-template-columns: 1fr 3fr;
+                    margin-bottom: 20px;
+                    .form-field__label {
+                        font-family: $Alumni-Sans-font-family;
+                        color: $dark-green-color;
+                        font-size: 36px;
+                        font-weight: 700;
+                        text-align: right;
+                    }
+                    .form-field__input {
+                        height: 30px;
+                        border: none;
+                        font-size: 24px;
+                        font-family: $Oswald-font-family;
+                        padding-left: 10px;
+                    }
+                }
+                .form-links {
+                    display: flex;
+                    justify-content: end;
+                    gap: 48px;
+                    .form-link {
+                        font-family: $Oswald-font-family;
+                        color: $dark-green-color;
+                        font-size: 18px;
+                        font-weight: 400;
+                        text-align: center;
+                    }
+                }
+                .form-button {
+                    width: auto;
+                    margin: 50px auto 50px auto;
+                    padding: 8px 12px;
+                    border: $dark-green-color solid 2px;
+                    border-radius: 5px;
+                    background-color: $mint-color;
+                    font-family: $Comfortaa-font-family;
+                    font-weight: 700;
+                    font-size: 24px;
+                    color: $dark-green-color;
+                }
+            }
+        }
+    }
 }
 
 .footer {
-    background-color: blue;
+
 }
