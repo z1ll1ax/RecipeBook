@@ -61,10 +61,26 @@ function App() {
             <h1 className='form-header'>Регистрация</h1>
             <div className='form-field'>
               <label className='form-field__label'
-                    htmlFor="name">Логин</label>
+                    htmlFor="first-name">Имя</label>
               <input className='form-field__input'
                     type="text"
-                    id="name"
+                    id="first-name"
+                    name="user_login"/>
+            </div>
+            <div className='form-field'>
+              <label className='form-field__label'
+                    htmlFor="last-name">Фамилия</label>
+              <input className='form-field__input'
+                    type="text"
+                    id="last-name"
+                    name="user_login"/>
+            </div>
+            <div className='form-field'>
+              <label className='form-field__label'
+                    htmlFor="login">Логин</label>
+              <input className='form-field__input'
+                    type="text"
+                    id="login"
                     name="user_login"/>
             </div>
             <div className='form-field'>
