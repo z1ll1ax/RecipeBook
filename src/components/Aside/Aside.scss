@@ -1,43 +1,42 @@
 @import '/src/Global.scss';
 
-.main-overflow {
-    max-width: 1440px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    .menu {
-        .menu-nav {
-            .menu-list {
-                list-style: none;
-                display: flex;
-                flex-direction: column;
-                .menu-item {
-                    .menu-item-link {
-                        background: transparent;
-                        border: none;
-                        border-radius: 2rem;
-                        transition: all 0.2s ease;
-                        display: flex;
-                        justify-content: baseline;
-                        align-items: center;
-                        .menu-item-link__image {
-                            margin: 5px 20px;
-                        }
+.menu {
+    .menu-nav {
+        .menu-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            .menu-item {
+                .menu-item-link {
+                    background-color: none;
+                    border: none;
+                    border-radius: 2rem;
+                    transition: background-color 0.2s linear;
+                    display: flex;
+                    justify-content: baseline;
+                    align-items: center;
+
+                    .menu-item-link__image {
+                        margin: 0.35rem 0.7rem;
+                        width: 2em;
+                    }
+
+                    .menu-item-link__text {
+                        font-family: $Bellota-font-family;
+                        color: $darker-green-color;
+                        font-weight: 700;
+                        font-size: 1.25rem;
+                        transition: all 0.2s linear;
+                    }
+
+                    &:hover {
+                        background-color: $lighter-green-color;
                         .menu-item-link__text {
-                            font-family: $Bellota-font-family;
-                            color: $black-green-color;
-                            font-weight: 700;
-                            font-size: 16px;
-                        }
-                        &:hover {
-                            background: linear-gradient(-155deg, $lighter-mint-color, $mint-color);
+                            color: $white-green-color;
                         }
                     }
                 }
             }
         }
-    }
-    .main-catalog {
-        margin: 0 auto;
     }
 }

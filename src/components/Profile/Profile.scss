@@ -1,0 +1,42 @@
+@import '/src/Global.scss';
+
+.profile{
+    padding: 1rem 3rem;
+    .profile-name-container-text {
+        font-family: $Comfortaa-font-family;
+        color: $black-green-color;
+        font-weight: 700;
+    }
+    .profile-name {
+        display: flex;
+        align-items: end;
+        margin-bottom: 2rem;
+        .profile-name-avatar {
+            width: 16rem;
+            border: solid 0.5em $green-color;
+        }
+        .profile-name-container {
+            margin-left: 3rem;
+            min-height: 15rem;
+            .profile-name-container__name {
+                font-size: 4rem;
+                margin-bottom: 2.5rem;
+            }
+            .profile-name-container__age {
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+            .profile-name-container__sex {
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+            .profile-name-container__email {
+                font-size: 1.2rem;
+            }
+        }
+    }
+    .profile-name-container__description {
+        text-indent: 4em;
+        font-size: 1.5rem;
+    }
+}

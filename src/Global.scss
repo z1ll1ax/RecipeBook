@@ -79,7 +79,7 @@ $Oswald-font-family: "Oswald";
     padding: 0;
 }
 
-h1, h3, a, p {
+h1, h2, h3, h4, h5, h6, a, p {
     margin: 0;
 }
 
@@ -88,6 +88,16 @@ a:hover, button:hover, input:hover {
 }
 
 .main {
-    background: $white-green-color;
-    height: 1500px;
+    background-image: linear-gradient(rgba($lighter-mint-color, 0.85), rgba($lighter-mint-color, 0.85)), url(./assets/images/bg3.png);
+    background-size: cover;
+    height: 93.75rem;
+    .main-overflow {
+        max-width: 90rem;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 15rem 1fr;
+    }
+    .main-container {
+        margin: 0 auto;
+    }
 }

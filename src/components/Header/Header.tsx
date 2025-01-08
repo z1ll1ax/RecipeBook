@@ -1,14 +1,17 @@
 import {FC} from "react";
 import logoImage from '/RecipeBook/src/assets/images/logo.png';
 import AccountLoggedIn from './AccountLoggedIn';
-import AccountEnter from './AccountEnter';
 import './Header.scss'
 
 interface HeaderProps {
-    
+  setActiveMainComponent: (component: string) => void;
 }
 
-const Header: FC<HeaderProps> = () => {
+const Header: FC<HeaderProps> = (
+  {
+    setActiveMainComponent
+  }
+) => {
     return (
         <header className='header'>
         <div className='header-overflow'>
@@ -22,8 +25,15 @@ const Header: FC<HeaderProps> = () => {
                 placeholder='Поиск...'
                 type='text'>
           </input>
-          <AccountLoggedIn name='Иван Иванов'/>
-          <AccountEnter />
+          {/* <AccountLoggedIn name='Иван Иванов'/> */}
+          <div className='account-enter'>
+            <button className="account-enter__button account-enter__light"
+                    onClick={() => setActiveMainComponent('login')}>
+            Войти</button>
+            <button className="account-enter__button account-enter__light"
+                    onClick={() => setActiveMainComponent('register')}>
+            Регистрация</button>
+          </div>
         </div>
       </header>
     )

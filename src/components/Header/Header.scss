@@ -1,14 +1,13 @@
 @import '/src/Global.scss';
 
-$header-length: 64px;
+$header-length: 4rem;
 
 .header {
     height: $header-length;
-    border-bottom: $darker-green-color 2px solid;
-    background: linear-gradient(155deg, $green-color, $light-green-color);
+    background: linear-gradient(155deg, $dark-green-color, $green-color);
     .header-overflow {
         height: 100%;
-        max-width: 1440px;
+        max-width: 90rem;
         margin: 0 auto;
         display: flex;
         align-items: center;
@@ -17,10 +16,10 @@ $header-length: 64px;
         .header-logo {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin: 0 20px;
+            gap: 1.25rem;
+            margin: 0 1.25rem;
             .header-logo__image {
-                height: calc($header-length - 10px);
+                height: calc($header-length - 0.625rem);
             }
 
             .header-logo__header {
@@ -30,21 +29,21 @@ $header-length: 64px;
         }
 
         .header-input {
-            height: calc($header-length - 30px);
-            width: 400px;
-            border: 2px solid $white-green-color;
-            border-radius: 20px;
-            padding-left: 30px;
+            height: calc($header-length - 2rem);
+            width: 25rem;
+            border: 0.125em solid $white-green-color;
+            border-radius: 1.25rem;
+            padding-left: 2rem;
             font-family: $Comfortaa-font-family;
-            font-size: 24px;
+            font-size: 1.5rem;
         }
 
         .account {
-            width: 300px;
+            width: 20rem;
             display: flex;
-            gap: 12px;
+            gap: 0.75rem;
             .account__avatar {
-                height: calc($header-length - 10px);
+                height: calc($header-length - 0.625rem);
             }
             .account-settings {
                 display: flex;
@@ -53,7 +52,7 @@ $header-length: 64px;
                 .account-settings__name {
                     font-family: $Bellota-font-family;
                     color: $white-green-color;
-                    font-size: 24px;
+                    font-size: 1.5rem;
                 }
                 .account-settings__quit {
                     font-family: $Bellota-font-family;
@@ -64,26 +63,25 @@ $header-length: 64px;
         }
 
         .account-enter {
-            width: 300px;
+            width: 20rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
             .account-enter__button {
                 border: none;
-                padding: 4px;
-            }
-            .account-enter__green {
-                background-color: $green-color;
-                font-family: $Comfortaa-font-family;
-                font-weight: 700;
-                font-size: 24px;
-                color: $dark-green-color;
+                border-radius: 1em;
+                padding: 0.75rem 1rem;
             }
             .account-enter__light {
-                background-color: $lighter-mint-color;
+                background-color: $mint-color;
                 font-family: $Comfortaa-font-family;
                 font-weight: 700;
-                font-size: 24px;
+                font-size: 1.25rem;
                 color: $dark-green-color;
+                transition: all 0.2s linear;
+                &:hover {
+                    background-color: $dark-green-color;
+                    color: $mint-color;
+                }
             }
         }
     }
