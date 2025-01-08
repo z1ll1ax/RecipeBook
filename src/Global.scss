@@ -1,0 +1,93 @@
+$black-green-color: #081c15;
+$darker-green-color: #1b4332;
+$dark-green-color: #2d6a4f;
+$green-color: #40916c;
+$light-green-color: #52b788;
+$lighter-green-color: #74c69d;
+$mint-color: #95d5b2;
+$lighter-mint-color: #b7e4c7;
+$white-green-color: #d8f3dc;
+
+$Alumni-Sans-font-family: "Alumni-Sans";
+$Bellota-font-family: "Bellota";
+$Comfortaa-font-family: "Comfortaa";
+$Oswald-font-family: "Oswald";
+
+@font-face {
+    font-family: "Alumni-Sans";
+    src: url("./assets/fonts/Alumni_Sans_Pinstripe/AlumniSansPinstripe-Regular.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Alumni-Sans";
+    src: url("./assets/fonts/Alumni_Sans_Pinstripe/AlumniSansPinstripe-Italic.ttf");
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Bellota";
+    src: url("./assets/fonts/Bellota/Bellota-Regular.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Bellota";
+    src: url("./assets/fonts/Bellota/Bellota-Bold.ttf");
+    font-weight: 700;
+    font-style: bold;
+}
+@font-face {
+    font-family: "Bellota";
+    src: url("./assets/fonts/Bellota/Bellota-BoldItalic.ttf");
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Bellota";
+    src: url("./assets/fonts/Bellota/Bellota-Italic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Bellota";
+    src: url("./assets/fonts/Bellota/Bellota-Light.ttf");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Bellota";
+    src: url("./assets/fonts/Bellota/Bellota-LightItalic.ttf");
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Comfortaa";
+    src: url("./assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Oswald";
+    src: url("./assets/fonts/Oswald/Oswald-VariableFont_wght.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+.body {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h3, a, p {
+    margin: 0;
+}
+
+a:hover, button:hover, input:hover {
+    cursor: pointer;
+}
+
+.main {
+    background: $white-green-color;
+    height: 1500px;
+}

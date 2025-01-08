@@ -1,0 +1,75 @@
+@import '/src/Global.scss';
+
+.form {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    .form-header {
+        font-family: $Alumni-Sans-font-family;
+        color: $dark-green-color;
+        font-size: 48px;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+    .form-field {
+        display: grid;
+        align-items: center;
+        gap: 20px;
+        grid-template-columns: 1fr 3fr;
+        margin-bottom: 20px;
+        .form-field__label {
+            font-family: $Alumni-Sans-font-family;
+            color: $dark-green-color;
+            font-size: 36px;
+            font-weight: 700;
+            text-align: right;
+        }
+        .form-field__input {
+            height: 30px;
+            border: none;
+            font-size: 24px;
+            font-family: $Oswald-font-family;
+            padding-left: 10px;
+        }
+        .form-field__sex-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .form-field__sex-inner-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .form-field__sex-input {
+            margin: 0;
+        }
+    }
+    .form-links {
+        display: flex;
+        justify-content: end;
+        gap: 48px;
+        .form-link {
+            font-family: $Oswald-font-family;
+            color: $dark-green-color;
+            font-size: 18px;
+            font-weight: 400;
+            text-align: center;
+            text-decoration: underline;
+        }
+    }
+    .form-button {
+        width: auto;
+        margin: 50px auto 50px auto;
+        padding: 8px 12px;
+        border: $dark-green-color solid 2px;
+        border-radius: 5px;
+        background-color: $mint-color;
+        font-family: $Comfortaa-font-family;
+        font-weight: 700;
+        font-size: 24px;
+        color: $dark-green-color;
+    }
+}
