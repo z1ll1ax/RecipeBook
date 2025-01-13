@@ -1,42 +1,145 @@
 @import '/src/Global.scss';
 
+$min-avatar-size: 18rem;
+$min-friend-avatar-size: 4rem;
+
 .profile{
     padding: 1rem 3rem;
-    .profile-name-container-text {
-        font-family: $Comfortaa-font-family;
-        color: $black-green-color;
-        font-weight: 700;
-    }
-    .profile-name {
-        display: flex;
-        align-items: end;
-        margin-bottom: 2rem;
-        .profile-name-avatar {
-            width: 16rem;
-            border: solid 0.5em $green-color;
-        }
-        .profile-name-container {
-            margin-left: 3rem;
-            min-height: 15rem;
-            .profile-name-container__name {
-                font-size: 4rem;
-                margin-bottom: 2.5rem;
-            }
-            .profile-name-container__age {
-                font-size: 1.2rem;
-                margin-bottom: 1.5rem;
-            }
-            .profile-name-container__sex {
-                font-size: 1.2rem;
-                margin-bottom: 1.5rem;
-            }
-            .profile-name-container__email {
-                font-size: 1.2rem;
+    .profile-container {
+        display: grid;
+        grid-template-columns: 3fr 5fr;
+        row-gap: 3rem;
+        column-gap: 2rem;
+        .profile-avatar {
+            margin: 0 auto;
+            width: $min-avatar-size;
+            height: $min-avatar-size;
+            .profile-avatar-overflow {
+                height: 100%;
+                border-radius: 50%;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .profile-avatar-image {
+                    min-height: $min-avatar-size;
+                    min-width: $min-avatar-size;
+                }
             }
         }
-    }
-    .profile-name-container__description {
-        text-indent: 4em;
-        font-size: 1.5rem;
+        .profile-characteristics {
+            padding: 1rem;
+            .profile-characteristic-container {
+                .profile-characteristic {
+                    font-family: $Bellota-font-family;
+                    font-weight: 700;
+                    color: $black-color;
+                    margin-bottom: 1rem;
+                    margin-left: 1rem;
+                }
+            }
+            .profile-name-container {
+                .profile-name {
+                    font-weight: 900;
+                    font-family: $Bellota-font-family;
+                    color: $black-color;
+                    margin-bottom: 1rem;
+                    font-size: 3rem;
+                } 
+            }
+            .profile-sex-and-age-container {
+                .profile-sex-and-age {
+                    font-size: 1.25rem;
+                } 
+            }
+            .profile-birth-container {
+                .profile-birth {
+                    font-size: 1.25rem;
+                } 
+            }
+            .profile-email-container {
+                .profile-email {
+                    font-size: 1.25rem;
+                } 
+            }
+        }
+        .profile-friends {
+            background-color: $green-color-20;
+            border: solid 0.25rem $green-color;
+            border-radius: 1rem;
+            padding-bottom: 0.5rem;
+            .profile-friends-title {
+                display: inline-block;
+                font-family: $Bellota-font-family;
+                font-weight: 700;
+                color: $black-color;
+                font-size: 1.5rem;
+                margin: 0.5rem 0 1rem 1.5rem;
+            }
+            .profile-friends-list {
+                display: grid;
+                grid-template-columns: repeat(4, calc($min-friend-avatar-size + 1rem));
+                justify-content: space-between;
+                row-gap: 1rem;
+                margin: 0 1rem;
+                .profile-friend {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: calc($min-friend-avatar-size + 1rem);
+                    .profile-friend-name {
+                        width: calc($min-friend-avatar-size + 1rem);
+                        height: 1rem;
+                        font-family: $Bellota-font-family;
+                        font-size: 0.85rem;
+                        text-align: center;
+                        color: $black-color;
+                        margin-top: 0.5rem;
+                    }
+                    .profile-friend-avatar-overflow {
+                        height: $min-friend-avatar-size;
+                        max-width: $min-friend-avatar-size;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .profile-friend-avatar-image {
+                            min-height: $min-friend-avatar-size;
+                            min-width: $min-friend-avatar-size;
+                        }
+                    }
+                }
+            }
+        }
+        .profile-description {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            .profile-description-text {
+                text-indent: 2em;
+                font-weight: 900;
+                font-size: 1.5rem;
+                font-family: $Bellota-font-family;
+                color: $black-color;
+            }
+            .profile-description-bot-container {
+                display: flex;
+                justify-content: space-evenly;
+                .profile-description-bot-container__recipes {
+                    font-weight: 900;
+                    font-size: 2rem;
+                    font-family: $Bellota-font-family;
+                    color: $black-color;
+                }
+                .profile-description-bot-container__favorites {
+                    font-weight: 900;
+                    font-size: 2rem;
+                    font-family: $Bellota-font-family;
+                    color: $black-color;
+                }
+            }
+        }
     }
 }

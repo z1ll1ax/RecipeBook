@@ -2,10 +2,14 @@
 
 .menu {
     .menu-nav {
+        background-color: $green-color-20;
+        border-radius: 0 0 1rem 1rem;
         .menu-list {
             list-style: none;
             display: flex;
             flex-direction: column;
+            margin: 0;
+            padding: 1rem;
             .menu-item {
                 .menu-item-link {
                     background-color: none;

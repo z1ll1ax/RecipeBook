@@ -19,13 +19,13 @@ function App() {
           name="Иван"
           lastName="Колядич"
           description="Описание профиля длинный-длинный-длинный текст много букв большое содержание немалый смысл, широкий взгляд в будущее"
-          birthDate="20 лет, 27.04.2004"
+          birthDate="27.04.2004"
           sex="Мужчина"
           email="alex-kachok-34-pacan@mail.ru" />;
       case 'login':
       default:
         return <LoginForm />;
-    }
+      }
   }
   return (
     <>

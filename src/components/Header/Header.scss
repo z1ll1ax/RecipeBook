@@ -1,17 +1,17 @@
 @import '/src/Global.scss';
 
-$header-length: 4rem;
-
 .header {
+    position: fixed;
+    width: 100vw;
     height: $header-length;
     background: linear-gradient(155deg, $dark-green-color, $green-color);
     .header-overflow {
         height: 100%;
         max-width: 90rem;
         margin: 0 auto;
-        display: flex;
+        display: grid;
+        grid-template-columns: 20rem 1fr 20rem;
         align-items: center;
-        justify-content: space-between;
         
         .header-logo {
             display: flex;
@@ -28,14 +28,48 @@ $header-length: 4rem;
             }
         }
 
-        .header-input {
+        .header-input-container {
+            display: flex;
+            position: relative;
+            align-items: center;
             height: calc($header-length - 2rem);
-            width: 25rem;
-            border: 0.125em solid $white-green-color;
-            border-radius: 1.25rem;
-            padding-left: 2rem;
-            font-family: $Comfortaa-font-family;
-            font-size: 1.5rem;
+            .header-input-container__input {
+                height: 100%;
+                width: 20rem;
+                border: 0.125rem solid $white-green-color;
+                border-radius: 1.25rem 0 0 1.25rem;
+                padding-left: 2rem;
+                font-family: $Comfortaa-font-family;
+                font-size: 1.5rem;
+            }
+            .header-input-clear-button {
+                position: absolute;
+                left: 20rem;
+                height: calc($header-length - 2rem);
+                width: calc($header-length - 2rem);
+                padding: 0;
+                border: none;
+                background-color: transparent;
+                padding-top: 0.1rem;
+                .header-input-clear-button__clear-icon {
+                    height: 1.65rem;
+                    fill: $darker-green-color;
+                }
+            }
+            .header-input-button {
+                height: calc($header-length - 1.65rem);
+                border-radius: 0 1.25rem 1.25rem 0;
+                border: 0.125rem solid $white-green-color;
+                border-left: none;
+                display: flex;
+                align-items: center;
+                .header-input-button__search-icon {
+                    height: 1.65rem;
+                    fill: $darker-green-color;
+                    padding: 0 0.25rem 0.1rem 0.25rem;
+                }
+            }
+           
         }
 
         .account {
@@ -82,6 +116,18 @@ $header-length: 4rem;
                     background-color: $dark-green-color;
                     color: $mint-color;
                 }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 64rem) {
+    .header {
+        .header-overflow {
+            grid-template-columns: 6rem 1fr 20rem;
+            .header-logo__header {
+                display: none;
             }
         }
     }
