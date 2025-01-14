@@ -1,9 +1,7 @@
 import { FC } from 'react';
 import './Catalog.scss';
 
-interface CatalogProps {}
-
-const Catalog: FC<CatalogProps> = () => {
+const Catalog: FC = () => {
   return (
     <div className="catalog">
       <article className="catalog-item"></article>

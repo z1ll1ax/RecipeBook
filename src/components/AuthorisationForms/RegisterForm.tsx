@@ -2,9 +2,7 @@ import { FC, useState } from 'react';
 import './AuthorisationForms.scss';
 import axios from 'axios';
 
-interface RegisterFormProps {}
-
-const RegisterForm: FC<RegisterFormProps> = () => {
+const RegisterForm: FC = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     secondName: '',

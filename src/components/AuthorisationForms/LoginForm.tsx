@@ -2,9 +2,7 @@ import { FC, useState } from 'react';
 import axios from 'axios';
 import './AuthorisationForms.scss';
 
-interface LoginFormProps {}
-
-const LoginForm: FC<LoginFormProps> = ({}) => {
+const LoginForm: FC = () => {
   const [formData, setFormData] = useState({
     login: '',
     password: ''

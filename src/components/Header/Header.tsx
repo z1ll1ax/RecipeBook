@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import logoImage from '/RecipeBook/src/assets/images/logo.png';
-import AccountLoggedIn from './AccountLoggedIn';
 import './Header.scss';
 
 interface HeaderProps {

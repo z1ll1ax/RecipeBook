@@ -19,7 +19,7 @@ const Profile: FC<ProfileProps> = ({
   birthDate = '',
   email = ''
 }) => {
-  let age = 20;
+  const age = 20;
   //TODO: calculate age from birth date
   return (
     <div className="profile">
