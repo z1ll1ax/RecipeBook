@@ -1,17 +1,14 @@
-import {FC} from "react";
-import './Catalog.scss'
+import { FC } from 'react';
+import './Catalog.scss';
 
-interface CatalogProps {
-    
-}
+interface CatalogProps {}
 
 const Catalog: FC<CatalogProps> = () => {
-    return (
-        <div className='catalog'>
-          <article className='catalog-item'>
-          </article>
-        </div>
-    )
-}
+  return (
+    <div className="catalog">
+      <article className="catalog-item"></article>
+    </div>
+  );
+};
 
 export default Catalog;

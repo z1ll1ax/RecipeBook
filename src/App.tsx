@@ -9,39 +9,41 @@ import Profile from './components/Profile/Profile';
 import { useState } from 'react';
 
 function App() {
-  const [activeMainComponent, setActiveMainComponent] = useState<string>('login');
+  const [activeMainComponent, setActiveMainComponent] =
+    useState<string>('login');
   const renderComponent = () => {
     switch (activeMainComponent) {
       case 'register':
         return <RegisterForm />;
       case 'profile':
-        return <Profile
-          name="Иван"
-          lastName="Колядич"
-          description="Описание профиля длинный-длинный-длинный текст много букв большое содержание немалый смысл, широкий взгляд в будущее"
-          birthDate="27.04.2004"
-          sex="Мужчина"
-          email="alex-kachok-34-pacan@mail.ru" />;
+        return (
+          <Profile
+            name="Иван"
+            lastName="Колядич"
+            description="Описание профиля длинный-длинный-длинный текст много букв большое содержание немалый смысл, широкий взгляд в будущее"
+            birthDate="27.04.2004"
+            sex="Мужчина"
+            email="alex-kachok-34-pacan@mail.ru"
+          />
+        );
       case 'login':
       default:
         return <LoginForm />;
-      }
-  }
+    }
+  };
   return (
     <>
       <Header setActiveMainComponent={setActiveMainComponent} />
-      <main className='main'>
-        <div className='main-overflow'>
+      <main className="main">
+        <div className="main-overflow">
           <Aside setActiveMainComponent={setActiveMainComponent} />
-          <section className="main-container">
-            {renderComponent()}
-          </section>
+          <section className="main-container">{renderComponent()}</section>
         </div>
         <Catalog />
       </main>
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

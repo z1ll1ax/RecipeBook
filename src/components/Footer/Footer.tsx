@@ -1,21 +1,10 @@
-import {FC} from "react";
-import './Footer.scss'
+import { FC } from 'react';
+import './Footer.scss';
 
-interface FooterProps {
-    
-}
+interface FooterProps {}
 
 const Footer: FC<FooterProps> = () => {
-    return (
-      <footer className='footer'>
-
-      </footer>
-    )
-}
+  return <footer className="footer"></footer>;
+};
 
 export default Footer;
-
-
-
-
-

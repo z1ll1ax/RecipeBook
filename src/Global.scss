@@ -10,99 +10,112 @@ $lighter-mint-color: #b7e4c7;
 $white-green-color: #d8f3dc;
 $green-color-20: rgba($green-color, 0.2);
 
-$Alumni-Sans-font-family: "Alumni-Sans";
-$Bellota-font-family: "Bellota";
-$Comfortaa-font-family: "Comfortaa";
-$Oswald-font-family: "Oswald";
+$Alumni-Sans-font-family: 'Alumni-Sans';
+$Bellota-font-family: 'Bellota';
+$Comfortaa-font-family: 'Comfortaa';
+$Oswald-font-family: 'Oswald';
 
 $header-length: 4rem;
 
 @font-face {
-    font-family: "Alumni-Sans";
-    src: url("./assets/fonts/Alumni_Sans_Pinstripe/AlumniSansPinstripe-Regular.ttf");
-    font-weight: 400;
-    font-style: normal;
+  font-family: 'Alumni-Sans';
+  src: url('./assets/fonts/Alumni_Sans_Pinstripe/AlumniSansPinstripe-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
 }
 @font-face {
-    font-family: "Alumni-Sans";
-    src: url("./assets/fonts/Alumni_Sans_Pinstripe/AlumniSansPinstripe-Italic.ttf");
-    font-weight: 400;
-    font-style: italic;
+  font-family: 'Alumni-Sans';
+  src: url('./assets/fonts/Alumni_Sans_Pinstripe/AlumniSansPinstripe-Italic.ttf');
+  font-weight: 400;
+  font-style: italic;
 }
 @font-face {
-    font-family: "Bellota";
-    src: url("./assets/fonts/Bellota/Bellota-Regular.ttf");
-    font-weight: 400;
-    font-style: normal;
+  font-family: 'Bellota';
+  src: url('./assets/fonts/Bellota/Bellota-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
 }
 @font-face {
-    font-family: "Bellota";
-    src: url("./assets/fonts/Bellota/Bellota-Bold.ttf");
-    font-weight: 700;
-    font-style: bold;
+  font-family: 'Bellota';
+  src: url('./assets/fonts/Bellota/Bellota-Bold.ttf');
+  font-weight: 700;
+  font-style: bold;
 }
 @font-face {
-    font-family: "Bellota";
-    src: url("./assets/fonts/Bellota/Bellota-BoldItalic.ttf");
-    font-weight: 700;
-    font-style: italic;
+  font-family: 'Bellota';
+  src: url('./assets/fonts/Bellota/Bellota-BoldItalic.ttf');
+  font-weight: 700;
+  font-style: italic;
 }
 @font-face {
-    font-family: "Bellota";
-    src: url("./assets/fonts/Bellota/Bellota-Italic.ttf");
-    font-weight: normal;
-    font-style: italic;
+  font-family: 'Bellota';
+  src: url('./assets/fonts/Bellota/Bellota-Italic.ttf');
+  font-weight: normal;
+  font-style: italic;
 }
 @font-face {
-    font-family: "Bellota";
-    src: url("./assets/fonts/Bellota/Bellota-Light.ttf");
-    font-weight: 300;
-    font-style: normal;
+  font-family: 'Bellota';
+  src: url('./assets/fonts/Bellota/Bellota-Light.ttf');
+  font-weight: 300;
+  font-style: normal;
 }
 @font-face {
-    font-family: "Bellota";
-    src: url("./assets/fonts/Bellota/Bellota-LightItalic.ttf");
-    font-weight: 300;
-    font-style: italic;
+  font-family: 'Bellota';
+  src: url('./assets/fonts/Bellota/Bellota-LightItalic.ttf');
+  font-weight: 300;
+  font-style: italic;
 }
 @font-face {
-    font-family: "Comfortaa";
-    src: url("./assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf");
-    font-weight: 400;
-    font-style: normal;
+  font-family: 'Comfortaa';
+  src: url('./assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf');
+  font-weight: 400;
+  font-style: normal;
 }
 @font-face {
-    font-family: "Oswald";
-    src: url("./assets/fonts/Oswald/Oswald-VariableFont_wght.ttf");
-    font-weight: 400;
-    font-style: normal;
+  font-family: 'Oswald';
+  src: url('./assets/fonts/Oswald/Oswald-VariableFont_wght.ttf');
+  font-weight: 400;
+  font-style: normal;
 }
 
 .body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6, a, p {
-    margin: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p {
+  margin: 0;
 }
 
-a:hover, button:hover, input:hover {
-    cursor: pointer;
+a:hover,
+button:hover,
+input:hover {
+  cursor: pointer;
 }
 
 .main {
-    background-image: linear-gradient(rgba($white-green-color, 0.9), rgba($white-green-color, 0.9)), url(./assets/images/bg2.png);
-    background-size: cover;
-    height: 93.75rem;
-    padding-top: $header-length;
-    .main-overflow {
-        max-width: 90rem;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 15rem 1fr;
-    }
-    .main-container {
-        margin: 0 auto;
-    }
+  background-image: linear-gradient(
+      rgba($white-green-color, 0.9),
+      rgba($white-green-color, 0.9)
+    ),
+    url(./assets/images/bg2.png);
+  background-size: cover;
+  height: 93.75rem;
+  padding-top: $header-length;
+  .main-overflow {
+    max-width: 90rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+  }
+  .main-container {
+    margin: 0 auto;
+  }
 }

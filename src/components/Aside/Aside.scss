@@ -1,46 +1,51 @@
 @import '/src/Global.scss';
 
 .menu {
-    .menu-nav {
-        background-color: $green-color-20;
-        border-radius: 0 0 1rem 1rem;
-        .menu-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            margin: 0;
-            padding: 1rem;
-            .menu-item {
-                .menu-item-link {
-                    background-color: none;
-                    border: none;
-                    border-radius: 2rem;
-                    transition: background-color 0.2s linear;
-                    display: flex;
-                    justify-content: baseline;
-                    align-items: center;
-
-                    .menu-item-link__image {
-                        margin: 0.35rem 0.7rem;
-                        width: 2em;
-                    }
-
-                    .menu-item-link__text {
-                        font-family: $Bellota-font-family;
-                        color: $darker-green-color;
-                        font-weight: 700;
-                        font-size: 1.25rem;
-                        transition: all 0.2s linear;
-                    }
-
-                    &:hover {
-                        background-color: $lighter-green-color;
-                        .menu-item-link__text {
-                            color: $white-green-color;
-                        }
-                    }
-                }
-            }
-        }
+  .menu-nav {
+    background-color: $green-color-20;
+    border-radius: 0 0 1rem 1rem;
+    .menu-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 1rem;
     }
+  }
+}
+.menu-item {
+  .menu-item-link {
+    background-color: none;
+    border: none;
+    border-radius: 2rem;
+    transition: background-color 0.2s linear;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+
+    &__image {
+      margin: 0.35rem 0.7rem;
+      width: 2em;
+      transition: all 0.2s linear;
+      fill: $darker-green-color;
+    }
+
+    &__text {
+      font-family: $Bellota-font-family;
+      color: $darker-green-color;
+      font-weight: 700;
+      font-size: 1.25rem;
+      transition: all 0.2s linear;
+    }
+
+    &:hover {
+      background-color: $light-green-color;
+      .menu-item-link__text {
+        color: $white-green-color;
+      }
+      .menu-item-link__image {
+        fill: $white-green-color;
+      }
+    }
+  }
 }
