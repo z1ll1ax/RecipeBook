@@ -2,7 +2,7 @@ import { FC } from 'react';
 import logoImage from '/RecipeBook/src/assets/images/logo.png';
 import './Header.scss';
 import { useNavigate } from 'react-router-dom';
-import avatar from '/RecipeBook/src/assets/images/avatar.jpg'
+import avatar from '/RecipeBook/src/assets/images/avatar.jpg';
 import { useUser } from '../../customHooks/UserContext';
 
 interface HeaderProps {
@@ -17,7 +17,7 @@ const Header: FC<HeaderProps> = ({ userId, loggedIn, logOut }) => {
 
   const handleLogOut = () => {
     logOut();
-  }
+  };
 
   return (
     <header className="header">
@@ -52,10 +52,8 @@ const Header: FC<HeaderProps> = ({ userId, loggedIn, logOut }) => {
             </svg>
           </button>
         </div>
-        {loggedIn
-          ?
-            isLoading
-            ?
+        {loggedIn ? (
+          isLoading ? (
             <div className="account">
               <div className="account__avatar">
                 <div className="account__avatar-overflow">
@@ -64,32 +62,60 @@ const Header: FC<HeaderProps> = ({ userId, loggedIn, logOut }) => {
               </div>
               <button className="account__name">Загрузка...</button>
             </div>
-            :
+          ) : (
             <div className="account">
               <div className="account__avatar">
                 <div className="account__avatar-overflow">
                   <img className="account__avatar-overflow__image" src={profile?.avatar}></img>
                 </div>
               </div>
-              <button className="account__name">{profile ? `${profile.firstName} ${profile.lastName}` : 'Аноним'}</button>
+              <button className="account__name">
+                {profile ? `${profile.firstName} ${profile.lastName}` : 'Аноним'}
+              </button>
               <div className="account__settings">
-                <button className="account__setting" onClick={() => {navigate(`/profile/${userId}`)}}>Мой профиль</button>
-                <button className="account__setting" onClick={() => {console.log(profile?.avatar)}}>Настройки</button>
-                <button className="account__setting" onClick={() => {handleLogOut()}}>Выйти</button>
+                <button
+                  className="account__setting"
+                  onClick={() => {
+                    navigate(`/profile/${userId}`);
+                  }}
+                >
+                  Мой профиль
+                </button>
+                <button
+                  className="account__setting"
+                  onClick={() => {
+                    console.log(profile?.avatar);
+                  }}
+                >
+                  Настройки
+                </button>
+                <button
+                  className="account__setting"
+                  onClick={() => {
+                    handleLogOut();
+                  }}
+                >
+                  Выйти
+                </button>
               </div>
             </div>
-          : 
+          )
+        ) : (
           <div className="account-enter">
             <button
               className="account-enter__button account-enter__light"
               onClick={() => navigate('/login')}
-            >Войти</button>
-          <button
-            className="account-enter__button account-enter__light"
-            onClick={() => navigate('/register')}
-          >Регистрация</button>
-        </div>
-        }
+            >
+              Войти
+            </button>
+            <button
+              className="account-enter__button account-enter__light"
+              onClick={() => navigate('/register')}
+            >
+              Регистрация
+            </button>
+          </div>
+        )}
       </div>
     </header>
   );

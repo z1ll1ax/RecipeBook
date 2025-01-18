@@ -57,7 +57,7 @@ const Profile: FC = () => {
         const url = `http://26.100.141.142:7070/people/${idToFetch}`;
         const response = await axios.get(url);
         setProfileData(response.data);
-        
+
         const urlFriends = `http://26.100.141.142:7070/friendship/${idToFetch}`;
         const responseFriends = await axios.get(urlFriends);
 
@@ -80,7 +80,7 @@ const Profile: FC = () => {
           console.warn('Аватар не найден, используется изображение по умолчанию.');
           setProfileData((prevData: any) => ({
             ...prevData,
-            avatar: null, // Устанавливаем null, если аватара нет
+            avatar: null // Устанавливаем null, если аватара нет
           }));
         } else {
           console.error('Ошибка загрузки аватара:', error);
@@ -206,10 +206,8 @@ const Profile: FC = () => {
   );
 };
 
-const Loading: FC = () => { 
-  return (
-    <h1>LOADING</h1>
-  )
-}
+const Loading: FC = () => {
+  return <h1>LOADING</h1>;
+};
 
 export default Profile;

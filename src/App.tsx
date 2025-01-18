@@ -23,18 +23,18 @@ function App() {
   return (
     <UserProvider>
       <Header userId={userId} loggedIn={loggedIn} logOut={logOut} />
-        <main className="main">
-          <div className="main-overflow">
-            <Aside userId={userId}/>
-            <section className="main-container">
+      <main className="main">
+        <div className="main-overflow">
+          <Aside userId={userId} />
+          <section className="main-container">
             <Routes>
               <Route path="/" element={<Navigate to="/login" />} />
-              <Route path="/login" element={<LoginForm logIn={logIn}/>} />
+              <Route path="/login" element={<LoginForm logIn={logIn} />} />
               <Route path="/register" element={<RegisterForm />} />
               <Route path={`profile/:id`} element={<Profile />} />
-              </Routes>
-            </section>
-          </div>
+            </Routes>
+          </section>
+        </div>
         <Catalog />
       </main>
       <Footer />

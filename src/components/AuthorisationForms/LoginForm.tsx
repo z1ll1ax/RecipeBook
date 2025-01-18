@@ -67,7 +67,14 @@ const LoginForm: FC<LoginFormProps> = ({ logIn }) => {
         />
       </div>
       <div className="form-links">
-        <a className="form-link" onClick={() => {navigate(`/register`)}}>Нет аккаунта? Регистрация</a>
+        <a
+          className="form-link"
+          onClick={() => {
+            navigate(`/register`);
+          }}
+        >
+          Нет аккаунта? Регистрация
+        </a>
         <a className="form-link">Забыли пароль?</a>
       </div>
       <button className="form-button" type="submit">

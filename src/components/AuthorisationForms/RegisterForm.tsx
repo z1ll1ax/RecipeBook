@@ -202,7 +202,14 @@ const RegisterForm: FC = () => {
         />
       </div>
       <div className="form-links">
-        <a className="form-link" onClick={() => {navigate(`/login`)}}>Уже есть аккаунт? Войти</a>
+        <a
+          className="form-link"
+          onClick={() => {
+            navigate(`/login`);
+          }}
+        >
+          Уже есть аккаунт? Войти
+        </a>
       </div>
       <button className="form-button" type="submit">
         Зарегистрироваться

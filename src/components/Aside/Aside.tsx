@@ -6,7 +6,7 @@ interface AsideProps {
   userId: string | null;
 }
 
-const Aside: FC<AsideProps> = ({userId: userId}) => {
+const Aside: FC<AsideProps> = ({ userId: userId }) => {
   const navigate = useNavigate();
   return (
     <aside className="menu">

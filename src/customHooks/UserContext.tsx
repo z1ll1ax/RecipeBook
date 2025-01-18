@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import useAuth from './useAuth';
-import avatar from '../assets/images/avatar.jpg'
+import avatar from '../assets/images/avatar.jpg';
 
 interface UserProfile {
   avatar: string;
@@ -42,21 +42,24 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       // Получаем аватар
       try {
-        const avatarResponse = await axios.get(`http://26.100.141.142:7070/people/${userId}/avatar`, {
-          responseType: 'blob',
-        });
+        const avatarResponse = await axios.get(
+          `http://26.100.141.142:7070/people/${userId}/avatar`,
+          {
+            responseType: 'blob'
+          }
+        );
         const avatarUrl = URL.createObjectURL(avatarResponse.data);
         setProfile({
           avatar: avatarUrl,
           firstName: profileData.firstName,
-          lastName: profileData.secondName,
+          lastName: profileData.secondName
         });
       } catch {
         // Если аватар отсутствует, используем заглушку
         setProfile({
           firstName: profileData.firstName,
           lastName: profileData.secondName,
-          avatar: avatar, // Путь к заглушке
+          avatar: avatar // Путь к заглушке
         });
       }
     } catch (error) {
