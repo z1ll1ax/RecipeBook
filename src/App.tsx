@@ -11,11 +11,16 @@ import { UserProvider } from './customHooks/UserContext';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 //TODO: on server fix birthDate
+//TODO: login and reg fields, checking if empty and is correct
 //TODO: friends and their list
 //TODO: loading screen and no user screen
 //TODO: failed login
 //TODO: paths with ../../ instead of RecipeBook/...
 //TODO: registration fix (avatar?)
+//TODO: in Profile change navigate path if no such userId
+//TODO: profile new features:
+//        if it's your acc -> add/change/delete avatar, settings (change profile, delete acc)
+//        if it's not you -> add or delete friend
 
 function App() {
   const { userId, loggedIn, logIn, logOut } = useAuth();

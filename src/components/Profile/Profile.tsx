@@ -2,14 +2,16 @@ import { FC, useState, useEffect } from 'react';
 import './Profile.scss';
 import axios from 'axios';
 import profileImage from '/RecipeBook/src/assets/images/avatar.jpg';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import useAuth from '/RecipeBook/src/customHooks/useAuth';
 
 const Profile: FC = () => {
+  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const { userId: currentUserId } = useAuth();
   const [profileData, setProfileData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [friends, setFriends] = useState<any[]>([]);
 
   const userIdToFetch = id || currentUserId;
 
@@ -60,6 +62,35 @@ const Profile: FC = () => {
 
         const urlFriends = `http://26.100.141.142:7070/friendship/${idToFetch}`;
         const responseFriends = await axios.get(urlFriends);
+        const shownFriends = responseFriends.data.slice(0, 8);
+
+        const friendsWithAvatars = await Promise.all(
+          shownFriends.map(async (friend: any) => {
+            try {
+              const urlAvatar = `http://26.100.141.142:7070/people/${friend.id}/avatar`;
+              const responseAvatar = await axios.get(urlAvatar, {
+                responseType: 'blob',
+                headers: {
+                  'Content-Type': 'multipart/form-data'
+                }
+              });
+
+              // Если аватар найден, создаем URL для изображения
+              const avatar = URL.createObjectURL(responseAvatar.data);
+              return { ...friend, avatar };
+            } catch (error: any) {
+              if (error.response && error.response.status === 404) {
+                console.warn(`Аватар для пользователя ${friend.id} не найден`);
+                return { ...friend, avatar: null }; // Если аватара нет, добавляем null или placeholder
+              } else {
+                console.error(`Ошибка загрузки аватара для друга ${friend.id}:`, error);
+                return { ...friend, avatar: null };
+              }
+            }
+          })
+        );
+
+        setFriends(friendsWithAvatars);
 
         const urlAvatar = `http://26.100.141.142:7070/people/${idToFetch}/avatar`;
         const responseAvatar = await axios.get(urlAvatar, {
@@ -101,8 +132,8 @@ const Profile: FC = () => {
     return <Loading />;
   }
 
-  if (!profileData) {
-    return <p>Ошибка загрузки данных профиля.</p>;
+  if (!profileData.login) {
+    navigate(`/login`);
   }
 
   return (
@@ -141,56 +172,15 @@ const Profile: FC = () => {
           </div>
         </div>
         <div className="profile-friends">
-          <a className="profile-friends-title">Друзья (84)</a>
+          <a className="profile-friends-title">{`Друзья (${friends.length})`}</a>
           <div className="profile-friends-list">
-            <a className="profile-friend">
-              <div className="profile-friend-avatar-overflow">
-                <img className="profile-friend-avatar-image" src={profileImage} alt={''}></img>
-              </div>
-              <h2 className="profile-friend-name">Павел</h2>
-            </a>
-            <a className="profile-friend">
-              <div className="profile-friend-avatar-overflow">
-                <img className="profile-friend-avatar-image" src={profileImage} alt={''}></img>
-              </div>
-              <h2 className="profile-friend-name">Владислав</h2>
-            </a>
-            <a className="profile-friend">
-              <div className="profile-friend-avatar-overflow">
-                <img className="profile-friend-avatar-image" src={profileImage} alt={''}></img>
-              </div>
-              <h2 className="profile-friend-name">Алексей</h2>
-            </a>
-            <a className="profile-friend">
-              <div className="profile-friend-avatar-overflow">
-                <img className="profile-friend-avatar-image" src={profileImage} alt={''}></img>
-              </div>
-              <h2 className="profile-friend-name">Александра</h2>
-            </a>
-            <a className="profile-friend">
-              <div className="profile-friend-avatar-overflow">
-                <img className="profile-friend-avatar-image" src={profileImage} alt={''}></img>
-              </div>
-              <h2 className="profile-friend-name">Павел</h2>
-            </a>
-            <a className="profile-friend">
-              <div className="profile-friend-avatar-overflow">
-                <img className="profile-friend-avatar-image" src={profileImage} alt={''}></img>
-              </div>
-              <h2 className="profile-friend-name">Владислав</h2>
-            </a>
-            <a className="profile-friend">
-              <div className="profile-friend-avatar-overflow">
-                <img className="profile-friend-avatar-image" src={profileImage} alt={''}></img>
-              </div>
-              <h2 className="profile-friend-name">Алексей</h2>
-            </a>
-            <a className="profile-friend">
-              <div className="profile-friend-avatar-overflow">
-                <img className="profile-friend-avatar-image" src={profileImage} alt={''}></img>
-              </div>
-              <h2 className="profile-friend-name">Александра</h2>
-            </a>
+            {friends.map((friend) => (
+              <Friend
+                key={friend.id}
+                name={friend.firstName}
+                avatar={friend.avatar || profileImage}
+              />
+            ))}
           </div>
         </div>
         <div className="profile-description">
@@ -208,6 +198,22 @@ const Profile: FC = () => {
 
 const Loading: FC = () => {
   return <h1>LOADING</h1>;
+};
+
+interface FriendProps {
+  name: string;
+  avatar: string;
+}
+
+const Friend: FC<FriendProps> = ({ name, avatar }) => {
+  return (
+    <a className="profile-friend">
+      <div className="profile-friend-avatar-overflow">
+        <img className="profile-friend-avatar-image" src={avatar} alt={name}></img>
+      </div>
+      <h2 className="profile-friend-name">{name}</h2>
+    </a>
+  );
 };
 
 export default Profile;
