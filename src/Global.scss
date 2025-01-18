@@ -8,6 +8,7 @@ $lighter-green-color: #74c69d;
 $mint-color: #95d5b2;
 $lighter-mint-color: #b7e4c7;
 $white-green-color: #d8f3dc;
+$white-color: #fff;
 $green-color-20: rgba($green-color, 0.2);
 
 $Alumni-Sans-font-family: 'Alumni-Sans';
@@ -101,10 +102,7 @@ input:hover {
 }
 
 .main {
-  background-image: linear-gradient(
-      rgba($white-green-color, 0.9),
-      rgba($white-green-color, 0.9)
-    ),
+  background-image: linear-gradient(rgba($white-green-color, 0.9), rgba($white-green-color, 0.9)),
     url(./assets/images/bg2.png);
   background-size: cover;
   height: 93.75rem;

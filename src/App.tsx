@@ -1,4 +1,5 @@
 import './Global.scss';
+import useAuth from './customHooks/useAuth';
 import RegisterForm from './components/AuthorisationForms/RegisterForm';
 import LoginForm from './components/AuthorisationForms/LoginForm';
 import Header from './components/Header/Header';
@@ -6,43 +7,38 @@ import Aside from './components/Aside/Aside';
 import Footer from './components/Footer/Footer';
 import Catalog from './components/Catalog/Catalog';
 import Profile from './components/Profile/Profile';
-import { useState } from 'react';
+import { UserProvider } from './customHooks/UserContext';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
+//TODO: on server fix birthDate
+//TODO: friends and their list
+//TODO: loading screen and no user screen
+//TODO: failed login
+//TODO: paths with ../../ instead of RecipeBook/...
+//TODO: registration fix (avatar?)
 
 function App() {
-  const [activeMainComponent, setActiveMainComponent] =
-    useState<string>('login');
-  const renderComponent = () => {
-    switch (activeMainComponent) {
-      case 'register':
-        return <RegisterForm />;
-      case 'profile':
-        return (
-          <Profile
-            name="Иван"
-            lastName="Колядич"
-            description="Описание профиля длинный-длинный-длинный текст много букв большое содержание немалый смысл, широкий взгляд в будущее"
-            birthDate="27.04.2004"
-            sex="Мужчина"
-            email="alex-kachok-34-pacan@mail.ru"
-          />
-        );
-      case 'login':
-      default:
-        return <LoginForm />;
-    }
-  };
+  const { userId, loggedIn, logIn, logOut } = useAuth();
+
   return (
-    <>
-      <Header setActiveMainComponent={setActiveMainComponent} />
-      <main className="main">
-        <div className="main-overflow">
-          <Aside setActiveMainComponent={setActiveMainComponent} />
-          <section className="main-container">{renderComponent()}</section>
-        </div>
+    <UserProvider>
+      <Header userId={userId} loggedIn={loggedIn} logOut={logOut} />
+        <main className="main">
+          <div className="main-overflow">
+            <Aside userId={userId}/>
+            <section className="main-container">
+            <Routes>
+              <Route path="/" element={<Navigate to="/login" />} />
+              <Route path="/login" element={<LoginForm logIn={logIn}/>} />
+              <Route path="/register" element={<RegisterForm />} />
+              <Route path={`profile/:id`} element={<Profile />} />
+              </Routes>
+            </section>
+          </div>
         <Catalog />
       </main>
       <Footer />
-    </>
+    </UserProvider>
   );
 }
 

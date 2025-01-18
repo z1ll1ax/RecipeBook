@@ -1,11 +1,13 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import './Aside.scss';
+import { useNavigate, useParams } from 'react-router-dom';
 
 interface AsideProps {
-  setActiveMainComponent: (component: string) => void;
+  userId: string | null;
 }
 
-const Aside: FC<AsideProps> = ({ setActiveMainComponent }) => {
+const Aside: FC<AsideProps> = ({userId: userId}) => {
+  const navigate = useNavigate();
   return (
     <aside className="menu">
       <nav className="menu-nav">
@@ -71,10 +73,7 @@ const Aside: FC<AsideProps> = ({ setActiveMainComponent }) => {
             </a>
           </li>
           <li className="menu-item">
-            <a
-              className="menu-item-link"
-              onClick={() => setActiveMainComponent('profile')}
-            >
+            <a className="menu-item-link" onClick={() => navigate(`/profile/${userId}`)}>
               <svg
                 className="menu-item-link__image"
                 xmlns="http://www.w3.org/2000/svg"

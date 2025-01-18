@@ -1,5 +1,7 @@
 @import '/src/Global.scss';
 
+$min-avatar-size: 3rem;
+
 .header {
   position: fixed;
   width: 100vw;
@@ -18,11 +20,11 @@
       align-items: center;
       gap: 1.25rem;
       margin: 0 1.25rem;
-      .header-logo__image {
+      &__image {
         height: calc($header-length - 0.625rem);
       }
 
-      .header-logo__header {
+      &__header {
         font-family: $Comfortaa-font-family;
         color: $white-green-color;
       }
@@ -33,7 +35,7 @@
       position: relative;
       align-items: center;
       height: calc($header-length - 2rem);
-      .header-input-container__input {
+      &__input {
         height: 100%;
         width: 20rem;
         border: 0.125rem solid $white-green-color;
@@ -51,19 +53,20 @@
         border: none;
         background-color: transparent;
         padding-top: 0.1rem;
-        .header-input-clear-button__clear-icon {
+        &__clear-icon {
           height: 1.65rem;
           fill: $darker-green-color;
         }
       }
       .header-input-button {
-        height: calc($header-length - 1.65rem);
+        height: calc($header-length - 1.6rem);
         border-radius: 0 1.25rem 1.25rem 0;
         border: 0.125rem solid $white-green-color;
         border-left: none;
+        background-color: $white-green-color;
         display: flex;
         align-items: center;
-        .header-input-button__search-icon {
+        &__search-icon {
           height: 1.65rem;
           fill: $darker-green-color;
           padding: 0 0.25rem 0.1rem 0.25rem;
@@ -72,27 +75,71 @@
     }
 
     .account {
+      background-color: transparent;
       width: 20rem;
+      gap: 1rem;
+      position: relative;
       display: flex;
-      gap: 0.75rem;
-      .account__avatar {
-        height: calc($header-length - 0.625rem);
-      }
-      .account-settings {
+    }
+    .account__avatar {
+      margin: 0 auto;
+      width: $min-avatar-size;
+      height: $min-avatar-size;
+      .account__avatar-overflow {
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
         display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        .account-settings__name {
-          font-family: $Bellota-font-family;
-          color: $white-green-color;
-          font-size: 1.5rem;
-        }
-        .account-settings__quit {
-          font-family: $Bellota-font-family;
-          color: $white-green-color;
-          text-align: right;
+        align-items: center;
+        justify-content: center;
+        .account__avatar-overflow__image {
+          min-height: $min-avatar-size;
+          min-width: $min-avatar-size;
         }
       }
+    }
+    .account__name {
+      background-color: transparent;
+      font-family: $Comfortaa-font-family;
+      font-size: 1rem;
+      padding: 0;
+      width: 15rem;
+      color: $white-color;
+      text-align: left;
+      border: none;
+      cursor: pointer;
+    }
+    .account__settings {
+      display: none;
+      position: absolute;
+      background-color: $mint-color;
+      width: 15rem;
+      margin-left: calc(4rem - 0.625rem);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      top: calc($header-length - 1rem);
+    }
+    .account__setting {
+      color: $dark-green-color;
+      font-family: $Comfortaa-font-family;
+      font-size: 1rem;
+      font-weight: 900;
+      text-align: center;
+      padding: 1rem;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      background-color: $lighter-mint-color;
+      border: none;
+      &:nth-child(2) {
+        background-color: $mint-color;
+      }
+    }
+    .account:hover .account__settings {
+      display: block;
+    }
+    .account__setting:hover {
+      background-color: $white-color;
     }
 
     .account-enter {

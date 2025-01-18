@@ -1,8 +1,15 @@
 import { FC, useState } from 'react';
 import axios from 'axios';
 import './AuthorisationForms.scss';
+import { useNavigate } from 'react-router-dom';
 
-const LoginForm: FC = () => {
+interface LoginFormProps {
+  logIn: (userId: string) => void;
+}
+
+const LoginForm: FC<LoginFormProps> = ({ logIn }) => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     login: '',
     password: ''
@@ -17,17 +24,13 @@ const LoginForm: FC = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      console.log(formData);
-      const response = await axios.post(
-        'http://26.100.141.142:7070/people',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }
-      );
-      console.log('Response:', response.data);
+      const url = `http://26.100.141.142:7070/people/login?login=${formData.login}&password=${formData.password}`;
+      const response = await axios.get(url);
+      if (response.data) {
+        logIn(response.data.id);
+      } else {
+        console.error('No user found');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
     }
@@ -64,7 +67,7 @@ const LoginForm: FC = () => {
         />
       </div>
       <div className="form-links">
-        <a className="form-link">Нет аккаунта? Регистрация</a>
+        <a className="form-link" onClick={() => {navigate(`/register`)}}>Нет аккаунта? Регистрация</a>
         <a className="form-link">Забыли пароль?</a>
       </div>
       <button className="form-button" type="submit">

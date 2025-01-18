@@ -1,7 +1,7 @@
 @import '/src/Global.scss';
 
 .form {
-  width: 37.5rem;
+  width: 42rem;
   display: flex;
   flex-direction: column;
   .form-header {
@@ -11,40 +11,44 @@
     font-weight: 700;
     text-align: center;
     margin-top: 1.25rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
   }
   .form-field {
     display: grid;
     align-items: center;
     gap: 1.25rem;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 2fr 5fr;
     margin-bottom: 1.25rem;
-    .form-field__label {
+    &__label {
       font-family: $Alumni-Sans-font-family;
       color: $darker-green-color;
-      font-size: 2.35rem;
+      font-size: 2rem;
       font-weight: 900;
       font-style: bold;
       text-align: right;
     }
-    .form-field__input {
+    &__input {
       height: 2rem;
       border: none;
       font-size: 1.5rem;
       font-family: $Oswald-font-family;
       padding-left: 0.6rem;
+      &[type='file'] {
+        height: 2.5rem;
+        font-size: 1.25rem;
+      }
     }
-    .form-field__sex-container {
+    &__sex-container {
       display: flex;
       align-items: center;
       justify-content: space-evenly;
     }
-    .form-field__sex-inner-container {
+    &__sex-inner-container {
       display: flex;
       align-items: center;
       gap: 1rem;
     }
-    .form-field__sex-input {
+    &__sex-input {
       margin: 0;
     }
   }
@@ -67,7 +71,7 @@
   }
   .form-button {
     width: auto;
-    margin: 3rem auto 3rem auto;
+    margin: 2rem auto;
     padding: 0.5rem 0.75rem;
     border: $dark-green-color solid 0.125rem;
     border-radius: 0.4rem;

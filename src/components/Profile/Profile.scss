@@ -61,7 +61,11 @@ $min-friend-avatar-size: 4rem;
   }
   .profile-email-container {
     .profile-email {
+      text-decoration: none;
       font-size: 1.25rem;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
